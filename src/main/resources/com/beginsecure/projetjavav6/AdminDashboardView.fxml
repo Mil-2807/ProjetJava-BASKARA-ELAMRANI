@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.beginsecure.projetjavav6.AdminDashboardController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #3f51b5; -fx-padding: 15;">
+            <Label fx:id="welcomeLabel" text="Bienvenue, Administrateur !" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+            <Label text="Tableau de Bord Administratif" style="-fx-text-fill: white; -fx-font-size: 18px;"/>
+            <HBox alignment="CENTER_RIGHT" spacing="10" VBox.vgrow="ALWAYS">
+                <Button text="Déconnexion" onAction="#handleLogout" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Accueil">
+                <content>
+                    <VBox alignment="CENTER" spacing="20" style="-fx-padding: 50;">
+                        <Label text="Bienvenue sur votre tableau de bord administrateur." style="-fx-font-size: 20px;"/>
+                        <Label text="Utilisez les onglets ci-dessus pour gérer l'application." style="-fx-font-size: 16px;"/>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <Tab text="Statistiques &amp; Signalisations">
+                <content>
+                    <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+                        <Label text="Statistiques et Signalisations du Système" style="-fx-font-size: 18px;"/>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Button text="Voir les statistiques" onAction="#showStatistics" style="-fx-font-size: 16px; -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                            <Button text="Voir les signalisations" onAction="#showSignalisations" style="-fx-font-size: 16px; -fx-background-color: #FFC107; -fx-text-fill: black; -fx-border-radius: 5;"/>
+                        </HBox>
+                        <Label fx:id="statsSignalsResultLabel" style="-fx-text-fill: blue; -fx-font-weight: bold;"/>
+                        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox fx:id="statsSignalsDisplayArea" style="-fx-border-color: lightgray; -fx-border-width: 1; -fx-padding: 10; -fx-background-color: white;" alignment="TOP_LEFT" prefHeight="400" prefWidth="700">
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <Tab text="Gestion des Cours">
+                <content>
+                    <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+                        <Label text="Section de gestion des cours." style="-fx-font-size: 18px;"/>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Button text="Afficher tous les cours" onAction="#showAllCourses" style="-fx-background-color: #607d8b; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                            <Button text="Créer un nouveau cours" onAction="#createCourse" style="-fx-background-color: #00bcd4; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                            <Button text="Modifier un cours" onAction="#modifyCourse" style="-fx-background-color: #ff9800; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5;"/>
+                            <Button text="Exporter les cours (CSV)" onAction="#handleExportCoursesToCsv" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5;"/>
+                            <Button text="Inscrire un étudiant à un cours" onAction="#handleEnrollStudentToCourse" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5;"/>
+                        </HBox>
+                        <Label fx:id="courseResultLabel" style="-fx-text-fill: blue;"/>
+                        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox fx:id="courseDisplayArea" style="-fx-border-color: lightgray; -fx-border-width: 1; -fx-padding: 10;" alignment="TOP_LEFT" prefHeight="400" prefWidth="700">
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <Tab text="Gestion des Salles &amp; Équipements">
+                <content>
+                    <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+                        <Label text="Section de gestion des salles et équipements." style="-fx-font-size: 18px;"/>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Button text="Afficher toutes les salles" onAction="#showAllSalles" style="-fx-background-color: #607d8b; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                            <Button text="Ajouter une nouvelle salle" onAction="#createSalle" style="-fx-background-color: #00bcd4; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                            <Button text="Ajouter un équipement à une salle" onAction="#addEquipementToSalle" style="-fx-background-color: #009688; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                            <Button text="Rechercher Disponibilité" onAction="#handleSearchAvailability" style="-fx-background-color: #00bcd4; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5;"/>
+                        </HBox>
+                        <Label fx:id="salleEquipementResultLabel" style="-fx-text-fill: blue;"/>
+                        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox fx:id="salleEquipementDisplayArea" style="-fx-border-color: lightgray; -fx-border-width: 1; -fx-padding: 10;" alignment="TOP_LEFT" prefHeight="400" prefWidth="700">
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <Tab text="Gestion des Utilisateurs">
+                <content>
+                    <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+                        <Label text="Section de gestion des enseignants et étudiants." style="-fx-font-size: 18px;"/>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Button text="Afficher tous les Enseignants" onAction="#showAllEnseignants" style="-fx-background-color: #607d8b; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                            <Button text="Créer un Enseignant" onAction="#createEnseignant" style="-fx-background-color: #00bcd4; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Button text="Afficher tous les Étudiants" onAction="#showAllEtudiants" style="-fx-background-color: #607d8b; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                            <Button text="Créer un Étudiant" onAction="#createEtudiant" style="-fx-background-color: #00bcd4; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                        </HBox>
+                        <Label fx:id="userResultLabel" style="-fx-text-fill: blue;"/>
+                        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox fx:id="userDisplayArea" style="-fx-border-color: lightgray; -fx-border-width: 1; -fx-padding: 10;" alignment="TOP_LEFT" prefHeight="400" prefWidth="700">
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <Tab text="Consulter Emploi du Temps">
+                <content>
+                    <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+                        <Label text="Consultation de l'emploi du temps global et recherche de cours." style="-fx-font-size: 18px;"/>
+                        <HBox spacing="10" alignment="CENTER">
+                            <Button text="Afficher Global" onAction="#afficherEdtGlobal" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-border-radius: 5;"/>
+                        </HBox>
+
+                        <HBox spacing="10" alignment="CENTER">
+                            <Label text="Critère de recherche (cours, enseignant, salle):" style="-fx-font-size: 14px;"/>
+                            <TextField fx:id="CoursReferenceField" promptText="Ex: Algorithmique, Martin, A101" style="-fx-background-color: white; -fx-border-color: #bbdefb; -fx-border-radius: 5; -fx-padding: 8;"/>
+                            <Button text="Rechercher Cours" onAction="#rechercherCours" style="-fx-background-color: #FFC107; -fx-text-fill: black; -fx-border-radius: 5;"/>
+                        </HBox>
+
+                        <Label fx:id="RechercheResultLabel" style="-fx-text-fill: green; -fx-font-weight: bold;"/>
+
+                        <Label fx:id="edtResultLabel" style="-fx-text-fill: blue; -fx-font-weight: bold;"/>
+
+                        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox fx:id="edtDisplayArea" style="-fx-border-color: lightgray; -fx-border-width: 1; -fx-padding: 10; -fx-background-color: white;" alignment="TOP_LEFT" prefHeight="400" prefWidth="700">
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <Tab text="Notifications">
+                <content>
+                    <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+                        <Label text="Toutes les Notifications du Système" style="-fx-font-size: 18px;"/>
+                        <Label text="Envoyer des notifications aux utilisateurs." style="-fx-font-size: 18px;"/>
+                        <Button text="Envoyer une Notification" onAction="#sendNotification" style="-fx-background-color: #673AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-padding: 8 20;"/>
+                        <Button text="Actualiser les Notifications" onAction="#showNotifications" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5;"/>
+                        <Label fx:id="notificationResultLabel" style="-fx-text-fill: blue;"/>
+                        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox fx:id="notificationDisplayArea" style="-fx-border-color: lightgray; -fx-border-width: 1; -fx-padding: 10; -fx-background-color: white;" alignment="TOP_LEFT" prefHeight="400" prefWidth="700">
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </VBox>
+                </content>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.beginsecure.projetjavav6.EnrollStudentToCourseController"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox alignment="CENTER" prefHeight="300.0" prefWidth="450.0" spacing="20.0" style="-fx-background-color: #f0f2f5; -fx-padding: 20;">
+        <children>
+            <Label text="Inscrire un Étudiant à un Cours" textFill="#333333">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
+            <GridPane hgap="10.0" vgap="10.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="120.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="250.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Label text="Sélectionner un Cours:" GridPane.rowIndex="0" />
+                    <ComboBox fx:id="courseComboBox" prefWidth="250.0" promptText="Choisir un cours" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Sélectionner un Étudiant:" GridPane.rowIndex="1" />
+                    <ComboBox fx:id="studentComboBox" prefWidth="250.0" promptText="Choisir un étudiant" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                </children>
+            </GridPane>
+            <Label fx:id="errorMessageLabel" style="-fx-text-fill: red;" text="" />
+            <HBox alignment="CENTER" spacing="15.0">
+                <children>
+                    <Button onAction="#handleEnroll" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-padding: 8 20;" text="Inscrire" />
+                    <Button onAction="#handleCancel" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-padding: 8 20;" text="Annuler" />
+                </children>
+            </HBox>
+        </children>
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+    </VBox>
+
+</AnchorPane>

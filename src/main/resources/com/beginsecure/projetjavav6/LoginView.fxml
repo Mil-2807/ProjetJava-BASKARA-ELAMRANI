@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.beginsecure.projetjavav6.LoginController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="15.0" style="-fx-background-color: #e0f2f7;">
+            <padding>
+                <Insets bottom="30.0" left="50.0" right="50.0" top="30.0" />
+            </padding>
+            <children>
+                <Label text="Connexion au Système" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2196f3;" />
+                <Label fx:id="errorMessageLabel" text="" style="-fx-text-fill: red; -fx-font-weight: bold;"/>
+                <Label text="Identifiant (Email ou Numéro)" style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+                <TextField fx:id="usernameField" promptText="Entrez votre identifiant" style="-fx-background-color: white; -fx-border-color: #bbdefb; -fx-border-radius: 5; -fx-padding: 8;"/>
+                <Label text="Mot de passe" style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+                <PasswordField fx:id="passwordField" promptText="Entrez votre mot de passe" style="-fx-background-color: white; -fx-border-color: #bbdefb; -fx-border-radius: 5; -fx-padding: 8;"/>
+                <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLoginButtonAction" text="Se connecter" prefWidth="250" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-border-radius: 8;"/>
+                <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButtonAction" text="Créer un compte" prefWidth="250" style="-fx-background-color: #2196f3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-border-radius: 8;"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

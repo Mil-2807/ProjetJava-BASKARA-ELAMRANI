@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.beginsecure.projetjavav6.RegisterController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <VBox alignment="CENTER" prefHeight="550.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: #f0f2f5; -fx-padding: 20;">
+        <children>
+            <Label text="Inscription" textFill="#333333">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <GridPane hgap="10.0" vgap="10.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="120.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="250.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Label text="Nom et Prénom:" GridPane.rowIndex="0" />
+                    <TextField fx:id="tfNomPrenom" promptText="Ex: Jean Dupont" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Téléphone:" GridPane.rowIndex="1" />
+                    <TextField fx:id="tfTelephone" promptText="Ex: 0612345678" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Email:" GridPane.rowIndex="2" />
+                    <TextField fx:id="tfEmail" promptText="email@example.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Mot de Passe:" GridPane.rowIndex="3" />
+                    <PasswordField fx:id="tfPassword" promptText="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <Label text="Confirmer Mot de Passe:" GridPane.rowIndex="4" />
+                    <PasswordField fx:id="tfConfirmPassword" promptText="Confirmer le mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                    <Label text="Rôle:" GridPane.rowIndex="5" />
+                    <ComboBox fx:id="roleComboBox" prefWidth="200.0" promptText="Sélectionner un rôle" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                    <Label fx:id="formationLabel" text="Formation:" GridPane.rowIndex="6" />
+                    <TextField fx:id="formationField" promptText="Ex: Licence Informatique" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                    <Label fx:id="specialtyLabel" text="Spécialité:" GridPane.rowIndex="7" />
+                    <TextField fx:id="specialtyField" promptText="Ex: Mathématiques" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                </children>
+            </GridPane>
+            <Label fx:id="errorMessageLabel" style="-fx-text-fill: red;" text="" />
+            <HBox alignment="CENTER" spacing="15.0">
+                <children>
+                    <Button fx:id="btInscription" onAction="#handleInscrireButtonAction" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-padding: 8 20;" text="S'inscrire" />
+                    <Button fx:id="btClear" onAction="#handleClearButtonAction" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5; -fx-padding: 8 20;" text="Effacer" />
+                </children>
+            </HBox>
+        </children>
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+    </VBox>
+
+</AnchorPane>

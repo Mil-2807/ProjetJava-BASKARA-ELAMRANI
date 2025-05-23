@@ -1,0 +1,7 @@
+ADM001,Dupont,Jean,jean.dupont@univ.fr,0123456789,adminpass,Administrateur
+ENS001,Martin,Sophie,sophie.martin@univ.fr,0611223344,profmath,Enseignant
+ENS002,Lefevre,Paul,paul.lefevre@univ.fr,0655443322,profphysique,Enseignant
+ENS003,Bernard,Marie,marie.bernard@univ.fr,0699887766,profinfo,Enseignant
+ETU001,Durand,Alice,alice.durand@etu.fr,0711223344,etualice,Etudiant
+ETU002,Petit,Tom,tom.petit@etu.fr,0755443322,etutom,Etudiant
+ETU003,Moreau,Lea,lea.moreau@etu.fr,0799887766,etulea,Etudiant
